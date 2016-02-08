@@ -1,0 +1,56 @@
+{
+	"manifest_version": 2,
+
+	"name": "Nike/Supreme Bot",
+	"description": "Merry Netsil.",
+	"options_page": "options.html",
+
+	"version": "1.0",
+
+	"content_scripts": [
+		{
+	"matches": [ "http://*/*", "https://*/*"],
+	"js": [ "jquery.js", "background.js" ]
+    	},
+		{
+      "matches": ["http://store.nike.com/*","https://secure-store.nike.com/*"],
+      "js": ["add2cart.js"]
+    	},
+		{
+	  "matches": ["*://twitter.com/*"],
+      "js": ["twitterscan.js"]
+		},
+    	{
+      "matches": ["https://www.supremenewyork.com/checkout"],
+      "js": ["checkout.js"]
+    	},
+    	{
+      "matches": ["*://www.supremenewyork.com/*"],
+      "js": ["supremebot.js"]
+    	},
+    	{
+      "matches": ["*://www.adidas.com/on/demandware.store/Sites-adidas-US-Site/en_US/COSummary-Start"],
+      "js": ["adidasCheckout.js"]
+    	},
+    	{
+      "matches": ["*://www.adidas.com/us/delivery-start"],
+      "js": ["adidasBoxes.js"]
+    	}
+	],
+
+	"background": { "scripts": ["background.js"] },
+
+	"permissions": [
+		"*://www.supremenewyork.com/*",
+		"https://store.nike.com/*",
+		"https://secure-store.nike.com/*",
+		"*://twitter.com/*",
+		"storage",
+		"tabs"
+	],
+
+	"browser_action": {
+		"default_icon": "icon.png"
+	}
+
+}
