@@ -1,0 +1,1 @@
+Adidas version of twitterparser
